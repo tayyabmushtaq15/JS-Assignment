@@ -796,7 +796,7 @@ Code an alert that displays the number rounded to 2 decimal places and converted
                         var orignalNumber = 2.323433;
                         var roundedString = originalNumber.toFixed(2);
                         alert(roundedString);
-Chapter 31 - 34 (Date & Time)
+Chapter 31 - 34 (Date & Time) 
 1.	Code a statement that creates a new Date object and assigns it to dObj, which hasn't been declared beforehand.
             var dObj = new Date();                    
 2.	Code a statement that creates a new Date object, converts it to a string, and assigns the string to dStr, which hasn't been declared beforehand.
@@ -1064,18 +1064,100 @@ function calculateAverage(numbers) {
                     console.log(`${letter}: ${result[letter]}`);
                     }
 13.	Write a function to set (year) in date object.
+            function setYear(date, year) {
+            date.setFullYear(year);
+            return date;
+            }
+            const currentDate = new Date();
+            const newDate = setYear(currentDate, 2023);
+            console.log(newDate);
 14.	Write a function which tells the age of a person who Born on (dateOfBirth)
+            function calculateAge(dateOfBirth) {
+            const today = new Date();
+            const birthDate = new Date(dateOfBirth);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            if (
+                today.getMonth() < birthDate.getMonth() ||
+                (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
+            ) {
+                age--;
+            }
+
+            return age;
+            }
+            const dateOfBirth = '1994-01-05';
+            const age = calculateAge(dateOfBirth);
+            console.log(`The person is ${age} years old.`);
 15.	Write a function which tells the presense of (word) in an array = ['zaid','haris','raza','abubakar','hassan','hussain','fatima']
 result should be in true or false
+            function doesWordExist(word, array) {
+            return array.includes(word);
+            }
+            const wordArray = ['zaid', 'haris', 'raza', 'abubakar', 'hassan', 'hussain', 'fatima'];
+            const wordToFind = 'raza';
+            const result = doesWordExist(wordToFind, wordArray);
+            console.log(result); 
 16.	Write a function which repeat (letter) 10 times.
 Hint: "abcde" str.repeat(10)
+            function repeatLetter(letter) {
+            return letter.repeat(10);
+            }
+            const letterToRepeat = 'A';
+            const result = repeatLetter(letterToRepeat);
+            console.log(result);
 17.	write a function which reverse array = ['a','b','c','d','e']
 Hint: arr.reverse()
+            function reverseArray(arr) {
+            return arr.reverse();
+            }
+            const originalArray = ['a', 'b', 'c', 'd', 'e'];
+            const reversedArray = reverseArray(originalArray);
+            console.log(reversedArray);
 Chapter 38 (Local vs. Global Variables)
 1.	Write a JavaScript function that demonstrates the usage of a local variable.
+function calculateSum(a, b) {
+      let result = a + b;
+            console.log(`The sum of ${a} and ${b} is ${result}`);
+        let doubledResult = result * 2;
+            console.log(`Double the result: ${doubledResult}`);
+        }
+            calculateSum(5, 3);
+
 2.	How can you access a global variable inside a function in JavaScript?
+        let globalVar ="My Variable";
+        function accessGlobalVariable() {
+            console.log(globalVar);
+        }
+        accessGlobalVariable();
 Chapter 39, 40 (Switch Statements)
 1.	Write a JavaScript switch statement that checks the value of a variable and performs different actions based on different cases.
+            let fruit = 'apple';
+            switch (fruit) {
+            case 'apple':
+                console.log('You selected an apple.');
+                break;
+            case 'banana':
+                console.log('You selected a banana.');
+                break;
+            case 'orange':
+                console.log('You selected an orange.');
+                break;
+            default:
+                console.log('Unknown fruit.');
+            }
 2.	Write a JavaScript switch statement that check whether cityName given by user check the cityName if match alert the user and break the statement, if not default message will be shown to user.
-
+            const cityName = prompt('Enter a city name:');
+            switch (cityName) {
+            case 'Lahore':
+                alert('You entered Lahore. This is a beautiful city!');
+                break;
+            case 'Islamabad':
+                alert('You entered Islamabad. The city that never sleeps!');
+                break;
+            case 'Sheikhupura':
+                alert('You entered Sheikhupura. A Green and Land of Agriculture!');
+                break;
+            default:
+                alert('City not recognized. Please enter a valid city name.');
+            }
  */
